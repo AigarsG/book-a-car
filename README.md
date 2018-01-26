@@ -1,5 +1,5 @@
 Sample app which allows employees to book a car.
-Idea was to use of Java servlets + JSP + DB to practice building MVC web app. Also practiced to create database pool.
+Idea was to use Java servlets + JSP + DB to practice building MVC web app. Also practiced to create database pool.
 
 Install:
 1) git clone
