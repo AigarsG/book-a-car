@@ -1,6 +1,7 @@
 package bookacar.common.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,6 +38,8 @@ public abstract class Dao<T> {
 						pstmt.setInt(i + 1, (Integer) arg);
 					} else if (arg instanceof String) {
 						pstmt.setString(i + 1, (String) arg);
+					} else if (arg instanceof Date) {
+						pstmt.setDate(i + 1, (Date) arg);
 					}
 				}
 				rs = pstmt.executeQuery();

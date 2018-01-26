@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import bookacar.booking.model.Booking;
 import bookacar.car.model.Car;
 import bookacar.common.dao.Dao;
 
@@ -23,6 +22,15 @@ public class CarDao extends Dao<Car> {
 	public List<Car> findById(int id) {
 		String query = "SELECT * FROM cars WHERE id=?";
 		Object[] args = { (Integer) id };
+		List<Car> res;
+		
+		res = executeQuery(query, args, false);
+		return res;
+	}
+	
+	public List<Car> findAll() {
+		String query = "SELECT * FROM cars";
+		Object[] args = {};
 		List<Car> res;
 		
 		res = executeQuery(query, args, false);

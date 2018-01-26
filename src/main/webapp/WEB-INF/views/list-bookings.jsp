@@ -27,6 +27,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<a href="/add-booking.do" class="btn btn-success">Add new</a>
 </div>
 
 <%@ include file="../common/footer.jspf"%>

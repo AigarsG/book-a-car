@@ -30,6 +30,16 @@ public class BookingDao extends Dao<Booking> {
 		return res;
 	}
 	
+	public List<Booking> findByCarId(int id) {
+		String query = "SELECT * FROM bookings WHERE car_id=?";
+		Object[] args = { (Integer) id };
+		List<Booking> res;
+
+		res = executeQuery(query, args, false);
+
+		return res;
+	}
+	
 	public List<Booking> findById(int id) {
 		String query = "SELECT * FROM bookings WHERE id=?";
 		Object[] args = { (Integer) id };
@@ -42,6 +52,12 @@ public class BookingDao extends Dao<Booking> {
 	public void deleteByIdAndEmployeeId(int id, int employeeId) {
 		String query = "DELETE FROM bookings WHERE id=? AND employee_id=?";
 		Object[] args = { (Integer) id, (Integer) employeeId };
+		executeQuery(query, args, true);
+	}
+	
+	public void createBooking(Booking b) {
+		String query = "INSERT INTO bookings (employee_id, car_id, from_date, to_date) VALUES (?,?,?,?)";
+		Object[] args = {(Integer) b.getEmployeeId(), (Integer) b.getCarId(), b.getFromDate(), b.getToDate()};
 		executeQuery(query, args, true);
 	}
 

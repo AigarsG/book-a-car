@@ -1,0 +1,50 @@
+psql (PostgreSQL) 9.6.6
+
+
+sudo -u postgres createuser bac_admin
+sudo -u postgres createdb bac
+sudo -u postgres psql
+    postgres=# alter user bac_admin with encrypted password 'linuxcare123';
+    postgres=# grant all privileges on database bac to bac_admin;
+
+
+CREATE TABLE IF NOT EXISTS employees (
+	id SERIAL PRIMARY KEY NOT NULL,
+	first_name VARCHAR(30) NOT NULL,
+	last_name VARCHAR(30) NOT NULL,
+	employee_id VARCHAR(80) NOT NULL UNIQUE,
+	password VARCHAR(40) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS cars (
+	id SERIAL PRIMARY KEY NOT NULL,
+	manufacturer VARCHAR(40) NOT NULL,
+	model VARCHAR(30) NOT NULL,
+	year INTEGER NOT NULL CHECK (year > 0)
+);
+
+CREATE TABLE IF NOT EXISTS bookings (
+	id SERIAL PRIMARY KEY NOT NULL,
+	employee_id INTEGER REFERENCES employees(id),
+	car_id INTEGER REFERENCES cars(id),
+	from_date DATE NOT NULL CHECK (from_date >= current_date),
+	to_date DATE NOT NULL CHECK (to_date >= from_date)
+)
+
+INSERT INTO employees VALUES (DEFAULT, 'Aigars', 'Gridjusko', 'aigars.gridjusko', 'ag1234'),
+	(DEFAULT, 'Janis', 'Berzins', 'janis.berzins', 'jb1234'),
+	(DEFAULT, 'Liene', 'Berzina', 'liene.berzina', 'lb1234'),
+	(DEFAULT, 'Didzis', 'Prieditis', 'didzis.prieditis', 'dp1234'),
+	(DEFAULT, 'Kaspars', 'Akmentins', 'kaspars.akmentins', 'kp1234');
+	
+INSERT INTO	cars VALUES (DEFAULT, 'Volvo Cars', 'Volvo XC40', 2018),
+	(DEFAULT, 'Volvo Cars', 'Volvo XC40', 2018),
+	(DEFAULT, 'Volvo Cars', 'Volvo XC60', 2008),
+	(DEFAULT, 'Volvo Cars', 'Volvo XC70', 2010),
+	(DEFAULT, 'Toyota', 'Toyota Auris', 2014),
+	(DEFAULT, 'Toyota', 'Toyota Auris', 2013),
+	(DEFAULT, 'Toyota', 'Avensis', 2011),
+	(DEFAULT, 'Toyota', 'Toyota Land Cruiser', 2015);
+
+INSERT INTO bookings VALUES (DEFAULT, 1, 8, '2018-02-01', '2018-02-07');
+INSERT INTO bookings VALUES (DEFAULT, 2, 4, '2018-01-24', '2018-01-24');

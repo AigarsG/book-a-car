@@ -11,7 +11,7 @@
 				class="form-control" />
 		</fieldset>
 		<fieldset class="form-group">
-			<label>Password</label> <input type="text" name="password"
+			<label>Password</label> <input type="password" name="password"
 				class="form-control" />
 		</fieldset>
 		<input type="submit" value="Login" class="btn btn-success" />

@@ -50,4 +50,3 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
-postgre_init

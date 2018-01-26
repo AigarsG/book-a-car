@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bookacar.employee.dao.EmployeeDaoOld;
 import bookacar.employee.dao.EmployeeDao;
 import bookacar.employee.model.Employee;
 
