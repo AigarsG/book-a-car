@@ -10,7 +10,6 @@
 		var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
 		currentTime.setHours(0, 0, 0, 0);
 		var show = true;
-		console.log(disabledDateRanges);
 		for ( var key in disabledDateRanges) {
 			if (disabledDateRanges.hasOwnProperty(key)) {
 				var value = disabledDateRanges[key];
@@ -29,7 +28,9 @@
 
 	$(document).ready(function() {
 		
-		// TODO Fix date_ranges_excluded not being included
+		$("#selectedCar").click(function(event) {
+			disabledDateRanges = {};
+		});
 		
 		$("#selectedCar").blur(function(event) {
 			$.ajax({
