@@ -19,8 +19,3 @@ Technologies/tools:
 - JQuery
 - Bootstrap
 
-
-TODO
-I failed to implement logic which restricts date ranges that can be selected for
-each car (other users book the car). Some AJAX magic with JQuery is necessary that I am not familiar with yet.   
-
