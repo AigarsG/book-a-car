@@ -1,18 +1,20 @@
 package bookacar.booking;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
 
-import javax.json.Json;
-import javax.json.JsonObjectBuilder;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
 
 import bookacar.booking.dao.BookingDao;
 import bookacar.booking.model.Booking;
@@ -27,10 +29,15 @@ public class AddBookingServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		List<Car> cars = cDao.findAll();
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
 		
+		List<Car> cars = cDao.findAll();
 		request.setAttribute("cars", cars);
 		
+		// Create JSON object including date ranges which should be disabled for a particular car
+		HashMap<String, String> obj = new HashMap<>();		
 		// Check if car id has been passed ( car selected )
 		String carId = request.getParameter("selectedCar");
 		if (carId != null) {
@@ -38,18 +45,23 @@ public class AddBookingServlet extends HttpServlet {
 			System.out.println("car selected: " + selectedCar.toString());
 			// Get all bookings against this car
 			List<Booking> bookings = bDao.findByCarId(selectedCar.getId());
+			
 			// Build a JSON object with date intervals when car is taken
-			JsonObjectBuilder jsonObj = Json.createObjectBuilder();
 			for (Booking booking : bookings) {
-				jsonObj.add(booking.getFromDate().toString(), booking.getToDate().toString());
+				obj.put(booking.getFromDate().toString(), booking.getToDate().toString());
 			}
-			System.out.println(jsonObj.build().toString());
-			request.setAttribute("date_ranges_excluded", jsonObj.toString());
+			
+			String jsonObj = new Gson().toJson(obj);
+			System.out.println(jsonObj);
+			out.print(jsonObj);
+			out.flush();
+			out.close();
+			
 		} else {
-			request.setAttribute("date_ranges_excluded", "{}");
+			//request.setAttribute("date_ranges_excluded", jsonObj);
+			request.getRequestDispatcher("/WEB-INF/views/add-booking.jsp").forward(request, response);
 		}
-		request.getRequestDispatcher("/WEB-INF/views/add-booking.jsp").forward(
-				request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request,

@@ -30,15 +30,6 @@
 	$(document).ready(function() {
 		
 		// TODO Fix date_ranges_excluded not being included
-		/*
-		// Update date_ranges_excluded when car is selected
-		$("#selectedCar").blur(function(event) {
-			var carId = $("#selectedCar").val();
-			$.get("/add-booking.do", {car_id : carId}, function() {
-				disabledDateRanges = JSON.parse("${date_ranges_excluded}");
-				console.log("new data ranges: " + disabledDateRanges);
-			});
-		});*/
 		
 		$("#selectedCar").blur(function(event) {
 			$.ajax({
@@ -46,9 +37,12 @@
 				data: {
 					selectedCar: $("#selectedCar").val()
 				},
+				headers: {
+					Accept: "application/jsonl charset=utf-8",
+					"Content-Type": "application/jsonl charset=utf-8"
+				},
 				success: function(exclusionRanges) {
-					disabledDateRanges = JSON.parse("${date_ranges_excluded}");
-					console.log("After " + disabledDateRanges);
+					disabledDateRanges = JSON.parse(JSON.stringify(exclusionRanges));
 				}
 			});
 		});

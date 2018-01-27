@@ -4,6 +4,9 @@
 <title>Book-A-Car</title>
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet">
+<link
+	href="webjars/jquery-ui/1.9.2/css/smoothness/jquery-ui-1.9.2.custom.css"
+	rel="stylesheet">
 
 <style>
 .footer {
@@ -14,6 +17,9 @@
 	background-color: #f5f5f5;
 }
 </style>
+<script src="webjars/jquery/2.1.4/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="webjars/jquery-ui/1.9.2/js/jquery-ui-1.9.2.custom.min.js"></script>
 </head>
 
 <body>
