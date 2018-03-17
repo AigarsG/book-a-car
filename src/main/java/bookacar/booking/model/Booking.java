@@ -1,21 +1,14 @@
 package bookacar.booking.model;
 
+import bookacar.common.model.Model;
+
 import java.sql.Date;
 
-public class Booking {
-	private int id;
+public class Booking extends Model {
 	private int employeeId;
 	private int carId;
 	private Date fromDate;
 	private Date toDate;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public int getEmployeeId() {
 		return employeeId;
@@ -53,7 +46,7 @@ public class Booking {
 	public String toString() {
 		return String
 				.format("Booking [id=%s, employeeId=%s, carId=%s, fromDate=%s, toDate=%s]",
-						id, employeeId, carId, fromDate, toDate);
+						getId(), employeeId, carId, fromDate, toDate);
 	}
 
 }

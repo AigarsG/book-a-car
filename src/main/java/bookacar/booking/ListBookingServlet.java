@@ -1,7 +1,6 @@
 package bookacar.booking;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,10 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bookacar.booking.dao.BookingDaoOld;
 import bookacar.booking.dao.BookingDao;
 import bookacar.booking.model.Booking;
-import bookacar.car.dao.CarDaoOld;
 import bookacar.car.dao.CarDao;
 import bookacar.car.model.Car;
 import bookacar.employee.model.Employee;

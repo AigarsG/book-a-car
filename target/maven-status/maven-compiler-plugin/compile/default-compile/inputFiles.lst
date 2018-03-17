@@ -1,16 +1,14 @@
 /home/aigars/workspace/book-a-car/src/main/java/bookacar/logout/LogoutServlet.java
 /home/aigars/workspace/book-a-car/src/main/java/bookacar/booking/AddBookingServlet.java
-/home/aigars/workspace/book-a-car/src/main/java/bookacar/employee/dao/EmployeeDaoOld.java
 /home/aigars/workspace/book-a-car/src/main/java/bookacar/car/dao/CarDao.java
 /home/aigars/workspace/book-a-car/src/main/java/bookacar/car/model/Car.java
 /home/aigars/workspace/book-a-car/src/main/java/bookacar/login/LoginServlet.java
 /home/aigars/workspace/book-a-car/src/main/java/bookacar/booking/dao/BookingDao.java
 /home/aigars/workspace/book-a-car/src/main/java/bookacar/filter/LoginRequiredFilter.java
-/home/aigars/workspace/book-a-car/src/main/java/bookacar/car/dao/CarDaoOld.java
 /home/aigars/workspace/book-a-car/src/main/java/bookacar/booking/DeleteBookingServlet.java
 /home/aigars/workspace/book-a-car/src/main/java/bookacar/booking/model/Booking.java
-/home/aigars/workspace/book-a-car/src/main/java/bookacar/booking/dao/BookingDaoOld.java
 /home/aigars/workspace/book-a-car/src/main/java/bookacar/common/database/DatabaseConnectionPool.java
+/home/aigars/workspace/book-a-car/src/main/java/bookacar/common/model/Model.java
 /home/aigars/workspace/book-a-car/src/main/java/bookacar/booking/ListBookingServlet.java
 /home/aigars/workspace/book-a-car/src/main/java/bookacar/employee/dao/EmployeeDao.java
 /home/aigars/workspace/book-a-car/src/main/java/bookacar/common/dao/Dao.java

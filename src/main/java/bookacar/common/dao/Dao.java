@@ -1,16 +1,13 @@
 package bookacar.common.dao;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import bookacar.common.database.DatabaseConnectionPool;
+import bookacar.common.model.Model;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import bookacar.common.database.DatabaseConnectionPool;
-
-public abstract class Dao<T> {
+public abstract class Dao<T extends Model> {
 
 	// Override this to create corresponding object
 	protected abstract T rowToObj(ResultSet rs) throws SQLException;

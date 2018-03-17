@@ -1,19 +1,12 @@
 package bookacar.employee.model;
 
-public class Employee {
-	private int id;
+import bookacar.common.model.Model;
+
+public class Employee extends Model {
 	private String firstName;
 	private String lastName;
 	private String employeeId;
 	private String password;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getFirstName() {
 		return firstName;
@@ -51,7 +44,7 @@ public class Employee {
 	public String toString() {
 		return String.format(
 				"Employee [id=%s, firstName=%s, lastName=%s, employeeId=%s]",
-				id, firstName, lastName, employeeId);
+				getId(), firstName, lastName, employeeId);
 	}
 
 }

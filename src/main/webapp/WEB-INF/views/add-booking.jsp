@@ -39,8 +39,8 @@
 					selectedCar: $("#selectedCar").val()
 				},
 				headers: {
-					Accept: "application/jsonl charset=utf-8",
-					"Content-Type": "application/jsonl charset=utf-8"
+					Accept: "application/json charset=utf-8",
+					"Content-Type": "application/json charset=utf-8"
 				},
 				success: function(exclusionRanges) {
 					disabledDateRanges = JSON.parse(JSON.stringify(exclusionRanges));
